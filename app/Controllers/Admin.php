@@ -2,8 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Admin extends BaseController
 {
+    protected $komikModel;
+    public function __construct()
+    {
+        $this->komikModel = new UserModel();
+    }
     public function login()
     {
         $data = [
@@ -13,9 +20,12 @@ class Admin extends BaseController
     }
     public function index()
     {
+        $siswa = $this->komikModel->findAll();
         $data = [
-            'title' => 'Admin Dashboard'
+            'title' => 'Admin Dashboard',
+            'siswa' => $siswa
         ];
+
         return view('admin/index', $data);
     }
 }

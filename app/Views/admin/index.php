@@ -120,11 +120,13 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                    </tr>
+                                    <?php foreach ($siswa as $sw) : ?>
+                                        <tr>
+                                            <td><?= $sw['nama'] ?></td>
+                                            <td><?= $sw['kelas'] ?></td>
+                                            <td><?= $sw['nomor'] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
