@@ -23,7 +23,7 @@
 
 </head>
 
-<body id="page-top" class="bg-gradient-primary">
+<body id="page-top" class="bg-gradient-danger">
 
 
     <?= $this->include('preloader/loader'); ?>

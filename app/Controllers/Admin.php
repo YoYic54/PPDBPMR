@@ -28,4 +28,10 @@ class Admin extends BaseController
 
         return view('admin/index', $data);
     }
+    public function delete($id)
+    {
+        $this->komikModel->delete($id);
+
+        return redirect()->to("/admin/index");
+    }
 }

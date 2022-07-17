@@ -4,7 +4,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-danger sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -60,7 +60,7 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
+                                        <button class="btn btn-danger" type="button">
                                             <i class="fas fa-search fa-sm"></i>
                                         </button>
                                     </div>
@@ -100,7 +100,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6>
+                        <h6 class="m-0 font-weight-bold text-danger">Data Siswa</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -110,6 +110,7 @@
                                         <th>Name</th>
                                         <th>Kelas</th>
                                         <th>No Hp</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -117,6 +118,7 @@
                                         <th>Name</th>
                                         <th>Kelas</th>
                                         <th>No Hp</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -125,6 +127,13 @@
                                             <td><?= $sw['nama'] ?></td>
                                             <td><?= $sw['kelas'] ?></td>
                                             <td><?= $sw['nomor'] ?></td>
+                                            <td>
+                                                <form action="/admin/<?= $sw['id'] ?>" method="post">
+                                                    <?= csrf_field() ?>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button class="btn btn-danger w-75 m-1 mx-auto">Hapus</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -173,7 +182,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="/admin">Logout</a>
+                <a class="btn btn-danger" href="/admin">Logout</a>
             </div>
         </div>
     </div>

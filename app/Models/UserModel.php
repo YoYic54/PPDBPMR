@@ -8,4 +8,5 @@ class UserModel extends Model
 {
     protected $table = 'siswa';
     protected $useTimestamps = true;
+    protected $allowedFields = ['nama','kelas','nomor'];
 }
